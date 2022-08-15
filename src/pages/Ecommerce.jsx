@@ -8,6 +8,7 @@ import {
   ecomPieChartData,
 } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 const Ecommerce = () => {
   return (
@@ -91,15 +92,17 @@ const Ecommerce = () => {
                 <p className="text-gray-500 mt-1">Expense</p>
               </div>
               <div className="mt-5">
-                <SparkLine
-                  currentColor="darkblue"
-                  id="line-sparkline"
-                  type="Line"
-                  height="80px"
-                  width="250px"
-                  data={SparklineAreaData}
-                  color="darkblue"
-                />
+                <ErrorBoundary>
+                  <SparkLine
+                    currentColor="darkblue"
+                    id="line-sparkline"
+                    type="Line"
+                    height="80px"
+                    width="250px"
+                    data={SparklineAreaData}
+                    color="darkblue"
+                  />
+                </ErrorBoundary>
               </div>
               <div className="mt-10 ">
                 <Button
@@ -111,7 +114,7 @@ const Ecommerce = () => {
               </div>
             </div>
             <div>
-              <Stacked width='320px' height='360px' />
+              <Stacked width="320px" height="360px" />
             </div>
           </div>
         </div>
